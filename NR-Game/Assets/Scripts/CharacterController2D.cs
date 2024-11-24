@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	private float horizontal;
-	private float speed = 8f;
+	private float speed = 6.5f;
 	private float jumpingPower = 16f;
 	private bool isFacingRight = true;
 
@@ -19,9 +19,9 @@ public class PlayerMovement : MonoBehaviour {
 			rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
 		}
 
-		if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f) {
-			rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.5f);
-		}
+		//if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f) {
+			//rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.5f);
+		//}
 
 
 		Flip();

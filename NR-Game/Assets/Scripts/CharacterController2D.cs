@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 	private float horizontal;
 	private float speed = 6.5f;
 	private float jumpingPower = 16f;
@@ -12,31 +13,37 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField] private Transform groundCheck;
 	[SerializeField] private LayerMask groundLayer;
 
-	void Update() {
+	void Update()
+	{
 		horizontal = Input.GetAxisRaw("Horizontal");
 
-		if (Input.GetButtonDown("Jump") && isGrounded()) {
+		if (Input.GetButtonDown("Jump") && isGrounded())
+		{
 			rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
 		}
 
 		//if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f) {
-			//rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.5f);
+		//rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.5f);
 		//}
-		
+
 
 		Flip();
 	}
 
-	private void FixedUpdate() {
+	private void FixedUpdate()
+	{
 		rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
 	}
 
-	private bool isGrounded() {
+	private bool isGrounded()
+	{
 		return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 	}
 
-	private void Flip() {
-		if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) {
+	private void Flip()
+	{
+		if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+		{
 			isFacingRight = !isFacingRight;
 			Vector3 localScale = transform.localScale;
 			localScale.x *= -1f;

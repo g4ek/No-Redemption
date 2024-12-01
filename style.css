@@ -1,0 +1,14 @@
+h1 {
+    font-family: 'Papyrus';
+}
+
+body {
+    background-color:dimgray;
+    font-family: 'Lucida-Console';
+    text-align: center;
+}
+
+img {
+    width: 670px;
+    border-radius: 50px;
+}
